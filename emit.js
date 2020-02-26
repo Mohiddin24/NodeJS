@@ -21,9 +21,9 @@ function Avg(){
   console.log('Average event occured and result is: %d',avg);
 }
 
-function sub(){
-  subt = num1 - num2;
-  console.log('subtraction event occured and result is :%d',sub);
+function sub(a,b){
+  subt = a - b;
+  console.log('subtraction event occured and result is :%d',subt);
 }
 
 myEmitter.addListener('Addition',addn)
@@ -33,14 +33,14 @@ myEmitter.on('Addition',Divn)
 myEmitter.on('Addition',Avg)
 
 
-myEmitter.on('subtraction',function(a,b){
-  subt = a-b
-  console.log('subtraction event occured and result is :%d',subt);
+myEmitter.on('subtraction',function(){
+  sub(10,6);
+  //subt = a-b
+  //console.log('subtraction event occured and result is :%d',subt);
 });
 
 myEmitter.emit('Addition')
 
 
 setTimeout(function(){
-  myEmitter.emit('subtraction',10,5)
-},2000);
+  myEmitter.emit('subtraction')},2000);
